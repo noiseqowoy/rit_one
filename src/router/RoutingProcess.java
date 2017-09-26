@@ -88,6 +88,15 @@ public class RoutingProcess {
         }
 
         win.Log("RoutingProcess.process_ROUTE not yet implemented\n");
+        RouterInfo ri = new RouterInfo(win, sender, area, seq, TTL, data);
+        // Validate stuff, check TTL
+        
+        if (data_validated){
+            map.put(sender, ri);
+        }
+        if (ri.test_diff_vec(data) && win.sendIfChanges()){
+            network_changed(false);
+    }
         
         // The code must create a new RouterInfo object ...
         //    RouterInfo pt = new RouterInfo(win, sender, area, seq, TTL, data);
