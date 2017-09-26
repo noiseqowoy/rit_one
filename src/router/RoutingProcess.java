@@ -91,9 +91,9 @@ public class RoutingProcess {
         RouterInfo ri = new RouterInfo(win, sender, area, seq, TTL, data);
         // Validate stuff, check TTL
         
-        if (data_validated){
+        /*if (data_validated){
             map.put(sender, ri);
-        }
+        }*/
         if (ri.test_diff_vec(data) && win.sendIfChanges()){
             network_changed(false);
     }
